@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/insertEmployee}" method="post">
+    <input type="hidden" value="put" name="_method" th:if="${employee!=null}">
+    <input type="hidden" name="id" th:if="${employee!=null}" th:value="${employee.id}">
+    <input type="text" name="username" th:value="${employee!=null}?${employee.username}:'请输入用户名'" />
+    <input type="text" name="password" th:value="${employee!=null}?${employee.password}:'请输入密码'"/>
+    <input type="text" name="date" th:value="${employee!=null}?${#dates.format(employee.date,'yyyy-MM-dd')}:'请选择日期'"  />
+    <input type="submit" th:value="${employee!=null}?'编辑':'新增'">
+</form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itlike.mapper.employeeMapper">
+
+    <!--新增-->
+    <insert id="insertEmployee" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        insert into employee(username,password,date)
+        values (#{username},#{password},#{date})
+    </insert>
+
+    <select id="getAllUser" resultType="com.itlike.pojo.employee">
+        select * from employee
+    </select>
+    <select id="selectUser" resultType="java.lang.Integer">
+        select count(*) from employee where username=#{username} and password=#{password}
+    </select>
+
+</mapper>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>thymeleaf------------index</h1>
+<a href="" th:href="@{/add}">增加</a>
+<div th:each="userItem:${userList}">
+    <span th:text="${userItem.id}"></span>
+    <span th:text="${userItem.username}"></span>
+    <span th:text="${userItem.password}"></span>
+    <span th:text="${#dates.format(userItem.date,'yyyy-MM-dd')}"></span>
+    <a href="" th:href="@{/edit/}+${userItem.id}">编辑</a>
+    <a href="" th:href="@{/del/}+${userItem.id}">删除</a>
+</div>
+<!--删除操作-->
+<!--<form method="post" id="delFrom">-->
+<!--    <input type="hidden" value="delete" name="_method" >-->
+<!--</form>-->
+<!--<script>-->
+<!--    $(function (){-->
+<!--        $("#deleteBtn").click(function () {-->
+<!--            $("#delFrom").attr("action",$(this).attr("del_Url")).submit();-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>
